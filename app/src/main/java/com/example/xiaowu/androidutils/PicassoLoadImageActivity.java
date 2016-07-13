@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.squareup.picasso.Cache;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
 
@@ -62,17 +63,9 @@ public class PicassoLoadImageActivity extends Activity {
 
 
            Picasso.Builder builder= new Picasso.Builder(PicassoLoadImageActivity.this);
-            builder.memoryCache(new LruCache(PicassoLoadImageActivity.this){
-                @Override
-                public Bitmap get(String key) {
-                    return super.get(key);
-                }
+            builder.memoryCache(new LruCache(10*1024*1024));
 
-                @Override
-                public void set(String key, Bitmap bitmap) {
-                    super.set(key, bitmap);
-                }
-            });
+
            Picasso picasso= builder.build();
                     picasso.load(urls.get(i))
                     .placeholder(R.mipmap.ic_launcher)
@@ -83,6 +76,39 @@ public class PicassoLoadImageActivity extends Activity {
 
 
             return view;
+        }
+    }
+
+    class Mycache implements Cache{
+
+        @Override
+        public Bitmap get(String key) {
+            return null;
+        }
+
+        @Override
+        public void set(String key, Bitmap bitmap) {
+
+        }
+
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public int maxSize() {
+            return 0;
+        }
+
+        @Override
+        public void clear() {
+
+        }
+
+        @Override
+        public void clearKeyUri(String keyPrefix) {
+
         }
     }
 }

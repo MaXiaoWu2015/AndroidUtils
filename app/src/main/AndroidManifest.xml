@@ -13,6 +13,10 @@
         </activity>
 
         <activity android:name=".PicassoLoadImageActivity">
+
+        </activity>
+
+        <activity android:name=".VolleyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
