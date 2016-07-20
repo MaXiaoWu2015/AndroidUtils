@@ -1,4 +1,4 @@
-package com.example.xiaowu.jsonparser;
+package com.example.xiaowu.network.jsonparser;
 
 /**
  * Created by xiaowu on 2016-7-13.
@@ -17,7 +17,7 @@ public class Constant {
             "                \"isPopup\": true," +
             "                \"isInList\": true," +
             "                \"popupImage\": \"http://konka.com/1.jpg\"," +
-            "                \"goto\": {" +
+            "                \"linkto\": {" +
             "                    \"type\": 2," +
             "                    \"mode\": 3," +
             "                    \"param\": [" +

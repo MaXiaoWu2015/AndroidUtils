@@ -1,4 +1,4 @@
-package com.example.xiaowu.jsonparser;
+package com.example.xiaowu.network.jsonparser;
 
 import org.json.JSONArray;
 import org.json.JSONException;

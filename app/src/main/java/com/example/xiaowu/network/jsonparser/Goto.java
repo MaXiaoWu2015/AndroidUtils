@@ -1,10 +1,8 @@
-package com.example.xiaowu.jsonparser;
+package com.example.xiaowu.network.jsonparser;
 
 /**
  * Created by xiaowu on 2016-7-13.
  */
-
-import java.util.ArrayList;
 
 /**
  * {
@@ -53,7 +51,7 @@ import java.util.ArrayList;
 public class Goto {
     private int type;
     private int mode;
-    private ArrayList<Param> param;
+    private String param;
 
     public int getMode() {
         return mode;
@@ -63,11 +61,19 @@ public class Goto {
         this.mode = mode;
     }
 
-    public ArrayList<Param> getParam() {
+//    public ArrayList<Param> getParam() {
+//        return param;
+//    }
+//
+//    public void setParam(ArrayList<Param> param) {
+//        this.param = param;
+//    }
+
+    public String getParam() {
         return param;
     }
 
-    public void setParam(ArrayList<Param> param) {
+    public void setParam(String param) {
         this.param = param;
     }
 

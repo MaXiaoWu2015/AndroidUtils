@@ -1,6 +1,4 @@
-package com.example.xiaowu.jsonparser;
-
-import java.util.ArrayList;
+package com.example.xiaowu.network.jsonparser;
 
 /**
  * Created by xiaowu on 2016-7-13.
@@ -15,13 +13,23 @@ import java.util.ArrayList;
  */
 public class Detail {
     private String btnText;
-    private ArrayList<String> pics;
+//    private ArrayList<String> pics;
+    private String pics;
 
-    public ArrayList<String> getPics() {
+//    public ArrayList<String> getPics() {
+//        return pics;
+//    }
+//
+//    public void setPics(ArrayList<String> pics) {
+//        this.pics = pics;
+//    }
+
+
+    public String getPics() {
         return pics;
     }
 
-    public void setPics(ArrayList<String> pics) {
+    public void setPics(String pics) {
         this.pics = pics;
     }
 

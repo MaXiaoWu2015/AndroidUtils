@@ -1,10 +1,11 @@
-package com.example.xiaowu.androidutils;
+package com.example.xiaowu.network;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
+import com.example.xiaowu.androidutils.R;
 import com.example.xiaowu.jsonparser.Constant;
 import com.example.xiaowu.jsonparser.FastJsonParser;
 import com.example.xiaowu.jsonparser.JsonData;
@@ -25,7 +26,12 @@ public class FastJsonActivity extends AppCompatActivity {
         JsonData data= FastJsonParser.parseJsonToObject(Constant.json);
         String   json= JSON.toJSONString(data);
         //JSONObjectParser
-        Log.d(TAG, "onCreate: \n "+json);
+
+        String param=(data.getData().getMessages().get(0)).getLinkto().getParam();
+        String picStr=(data.getData().getMessages().get(0)).getDetail().getPics();
+        Log.d(TAG, "onCreate: \n "+json+"  "+param.substring(1,param.length()-1));
+        Log.d(TAG, "onCreate: \n "+picStr.substring(1,picStr.length()-1));
+
 
 
 
