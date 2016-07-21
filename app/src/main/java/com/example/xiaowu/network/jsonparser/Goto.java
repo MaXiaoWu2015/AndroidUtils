@@ -24,7 +24,7 @@ package com.example.xiaowu.network.jsonparser;
  {
  "key": "className",
  "value": "FastJsonActivity",
- "valueType": 1,
+ "valueType": la,
  "isExtra": false
  }
  ]
@@ -38,7 +38,7 @@ package com.example.xiaowu.network.jsonparser;
  },
  "isDelete": false,
  "channel": {
- "id": 1,
+ "id": la,
  "title": "用户中心",
  "icon": "http://konka.com/center.jpg",
  "WeekLimitCount": 10

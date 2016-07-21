@@ -7,7 +7,7 @@ package com.example.xiaowu.network.jsonparser;
  {
  "key": "className",
  "value": "FastJsonActivity",
- "valueType": 1,
+ "valueType": la,
  "isExtra": false
  }
  ]

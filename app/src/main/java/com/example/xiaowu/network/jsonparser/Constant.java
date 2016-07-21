@@ -16,7 +16,7 @@ public class Constant {
             "                \"expireTime\": 1467682128," +
             "                \"isPopup\": true," +
             "                \"isInList\": true," +
-            "                \"popupImage\": \"http://konka.com/1.jpg\"," +
+            "                \"popupImage\": \"http://konka.com/laa.jpg\"," +
             "                \"linkto\": {" +
             "                    \"type\": 2," +
             "                    \"mode\": 3," +
@@ -24,7 +24,7 @@ public class Constant {
             "                        {" +
             "                            \"key\": \"className\"," +
             "                            \"value\": \"FastJsonActivity\"," +
-            "                            \"valueType\": 1," +
+            "                            \"valueType\": la," +
             "                            \"isExtra\": false" +
             "                        }" +
             "                    ]" +
@@ -32,13 +32,13 @@ public class Constant {
             "                \"detail\": {" +
             "                    \"btnText\": \"查看详情\"," +
             "                    \"pics\": [" +
-            "                        \"http://konka.com/1.jpg\"," +
+            "                        \"http://konka.com/la.jpgg\"," +
             "                        \"http://konka.com/2.jpg\"" +
             "                    ]" +
             "                }," +
             "                \"isDelete\": false," +
             "                \"channel\": {" +
-            "                    \"id\": 1," +
+            "                    \"id\": la," +
             "                    \"title\": \"用户中心\"," +
             "                    \"icon\": \"http://konka.com/center.jpg\"," +
             "                    \"WeekLimitCount\": 10" +

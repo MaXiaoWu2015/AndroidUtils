@@ -22,7 +22,7 @@ public class VolleyActivity extends Activity {
         setContentView(R.layout.activity_volley);
         imageView= (ImageView) findViewById(R.id.iv_image);
 
-        //1.RequestQueue
+        //la.RequestQueue
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         //2.ImageLoader
         ImageLoader imageLoader=new ImageLoader(requestQueue, new BitmapCache());

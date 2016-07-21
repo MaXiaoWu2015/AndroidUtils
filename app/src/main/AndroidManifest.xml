@@ -8,15 +8,19 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FastJsonActivity">
+        <activity android:name="com.example.xiaowu.network.FastJsonActivity">
 
         </activity>
 
-        <activity android:name=".PicassoLoadImageActivity">
+        <activity android:name="com.example.xiaowu.network.PicassoLoadImageActivity">
 
         </activity>
 
-        <activity android:name=".VolleyActivity">
+        <activity android:name="com.example.xiaowu.network.VolleyActivity">
+
+        </activity>
+        
+        <activity android:name="com.example.xiaowu.recyclerview.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

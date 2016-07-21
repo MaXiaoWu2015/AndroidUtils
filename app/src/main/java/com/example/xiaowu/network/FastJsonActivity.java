@@ -6,9 +6,9 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.example.xiaowu.androidutils.R;
-import com.example.xiaowu.jsonparser.Constant;
-import com.example.xiaowu.jsonparser.FastJsonParser;
-import com.example.xiaowu.jsonparser.JsonData;
+import com.example.xiaowu.network.jsonparser.Constant;
+import com.example.xiaowu.network.jsonparser.FastJsonParser;
+import com.example.xiaowu.network.jsonparser.JsonData;
 import com.squareup.picasso.Cache;
 
 public class FastJsonActivity extends AppCompatActivity {
