@@ -1,4 +1,4 @@
-package com.example.xiaowu.network.jsonparser;
+package com.example.xiaowu.dataparser.jsonparser.jsonbean;
 
 
 

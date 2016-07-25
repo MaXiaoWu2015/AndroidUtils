@@ -1,8 +1,8 @@
 package com.example.xiaowu.recyclerview;
 
-import android.content.Context;
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -10,14 +10,13 @@ import android.view.ViewGroup;
  * Created by maxiaowu on 16/7/20.
  */
 public class HeaderAndFooterWrapper extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private static final String TAG = "HeaderAndFooterWrapper";
     private RecyclerView.Adapter mInnerAdapter;
-    private Context mContext;
     private SparseArrayCompat<View> mHeadersView;
     private SparseArrayCompat<View> mFootersView;
     private static final int BASE_HEADER_ITEM=10000;
     private static final int BASE_FOOTER_ITEM=20000;
-    public HeaderAndFooterWrapper(Context context, RecyclerView.Adapter adapter) {
-        mContext=context;
+    public HeaderAndFooterWrapper(RecyclerView.Adapter adapter) {
         mInnerAdapter=adapter;
         mHeadersView=new SparseArrayCompat<>();
         mFootersView=new SparseArrayCompat<>();
@@ -28,20 +27,37 @@ public class HeaderAndFooterWrapper extends RecyclerView.Adapter<RecyclerView.Vi
         if (mHeadersView.get(viewType)!=null)
         {
             //返回头部ViewHolder
-        }else if (mFootersView.get(viewType)!=null)
+            return ViewHolder.createViewHolder(parent.getContext(),mHeadersView.get(viewType));
+        }
+        Log.d(TAG, "onBindViewHolder foot:"+mFootersView.get(viewType));
+        if (mFootersView.get(viewType)!=null)
         {
             //返回尾部ViewHolder
+
+            return ViewHolder.createViewHolder(parent.getContext(),mFootersView.get(viewType));
         }
-        return null;
+        return mInnerAdapter.onCreateViewHolder(parent,viewType);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
+        if (isHeaderView(position))
+        {
+            return;
+        }else if (isFooterView(position))
+        {
+            return;
+        }else{
+
+            Log.d(TAG, "onBindViewHolder: "+position);
+            mInnerAdapter.onBindViewHolder(holder,position-mHeadersView.size());
+        }
     }
 
     @Override
     public int getItemCount() {
+        Log.d(TAG, "getItemCount: "+(mHeadersView.size()+mFootersView.size()+getRealItemCount()));
         return mHeadersView.size()+mFootersView.size()+getRealItemCount();
     }
 
@@ -64,7 +80,7 @@ public class HeaderAndFooterWrapper extends RecyclerView.Adapter<RecyclerView.Vi
     }
     public boolean isFooterView(int position)
     {
-        return position>=getRealItemCount()+mFootersView.size();
+        return position>=getRealItemCount()+mHeadersView.size();
     }
     @Override
     public int getItemViewType(int position) {
@@ -73,8 +89,8 @@ public class HeaderAndFooterWrapper extends RecyclerView.Adapter<RecyclerView.Vi
             return mHeadersView.keyAt(position);
         }else if (isFooterView(position))
         {
-            return mFootersView.keyAt(position);
+            return mFootersView.keyAt(position-getRealItemCount()-mHeadersView.size());
         }
-        return super.getItemViewType(position);
+        return mInnerAdapter.getItemViewType(position-mHeadersView.size());
     }
 }

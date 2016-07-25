@@ -1,4 +1,4 @@
-package com.example.xiaowu.recyclerview;
+package com.example.xiaowu.listview;
 
 import android.view.View;
 import android.view.ViewGroup;

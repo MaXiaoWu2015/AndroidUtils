@@ -37,7 +37,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.tv_text.setText(mItemList.get(position));
         holder.iv_pic.setImageResource(R.drawable.index);
-        Log.d(TAG, "onBindViewHolder: "+mItemList.get(position));
+        Log.d(TAG, "onBindViewHolder: "+position);
     }
 
     @Override

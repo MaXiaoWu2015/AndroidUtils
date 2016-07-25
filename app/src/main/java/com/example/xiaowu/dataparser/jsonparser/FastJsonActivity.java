@@ -1,4 +1,4 @@
-package com.example.xiaowu.network;
+package com.example.xiaowu.dataparser.jsonparser;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,9 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.example.xiaowu.androidutils.R;
-import com.example.xiaowu.network.jsonparser.Constant;
-import com.example.xiaowu.network.jsonparser.FastJsonParser;
-import com.example.xiaowu.network.jsonparser.JsonData;
+import com.example.xiaowu.dataparser.jsonparser.jsonbean.Constant;
+import com.example.xiaowu.dataparser.jsonparser.jsonbean.FastJsonParser;
+import com.example.xiaowu.dataparser.jsonparser.jsonbean.JsonData;
 import com.squareup.picasso.Cache;
 
 public class FastJsonActivity extends AppCompatActivity {

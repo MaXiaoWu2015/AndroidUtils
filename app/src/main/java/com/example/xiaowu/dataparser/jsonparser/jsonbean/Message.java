@@ -1,4 +1,4 @@
-package com.example.xiaowu.network.jsonparser;
+package com.example.xiaowu.dataparser.jsonparser.jsonbean;
 
 /**
  * Created by xiaowu on 2016-7-13.
