@@ -34,7 +34,7 @@ public class TestActivity extends Activity {
         recyclerView.setAdapter(mAdapter=new RecyclerAdapter(this,mList));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-mList.add();
+
 
 
 
