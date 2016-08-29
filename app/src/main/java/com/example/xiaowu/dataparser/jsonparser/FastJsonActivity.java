@@ -27,10 +27,14 @@ public class FastJsonActivity extends AppCompatActivity {
         String   json= JSON.toJSONString(data);
         //JSONObjectParser
 
-        String param=(data.getData().getMessages().get(0)).getLinkto().getParam();
+        String param=(data.getData().getMessages().get(0)).getExpireTime();
         String picStr=(data.getData().getMessages().get(0)).getDetail().getPics();
-        Log.d(TAG, "onCreate: \n "+json+"  "+param.substring(1,param.length()-1));
-        Log.d(TAG, "onCreate: \n "+picStr.substring(1,picStr.length()-1));
+
+
+            Log.d(TAG, "onCreate: \n "+json+"  "+param.toString());
+            Log.d(TAG, "onCreate: \n "+picStr.substring(1,picStr.length()-1));
+
+
 
 
 

@@ -11,6 +11,10 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 import com.example.xiaowu.androidutils.R;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 /**
  * Created by maxiaowu on 16/7/13.
  */
@@ -24,15 +28,39 @@ public class VolleyActivity extends Activity {
 
         //la.RequestQueue
         RequestQueue requestQueue= Volley.newRequestQueue(this);
-        //2.ImageLoader
-        ImageLoader imageLoader=new ImageLoader(requestQueue, new BitmapCache());
-        //ImageListener
-        ImageLoader.ImageListener imageListener= ImageLoader.getImageListener(imageView,R.mipmap.ic_launcher,R.mipmap.ic_launcher);
-        //
-        imageLoader.get("http://img4.imgtn.bdimg.com/it/u=2262413897,3754053237&fm=21&gp=0.jpg"
-                         ,imageListener);
+//        //2.ImageLoader
+//        ImageLoader imageLoader=new ImageLoader(requestQueue, new BitmapCache());
+//        //ImageListener
+//        ImageLoader.ImageListener imageListener= ImageLoader.getImageListener(imageView,R.mipmap.ic_launcher,R.mipmap.ic_launcher);
+//        //
+//        imageLoader.get("http://img4.imgtn.bdimg.com/it/u=2262413897,3754053237&fm=21&gp=0.jpg"
+//                         ,imageListener);
+
+
+
+
+
+
+
+
+
 
     }
+
+    public void httpUrlConnect(String urlStr) {
+        try {
+            URL url=new URL(urlStr);
+            HttpURLConnection  connection= (HttpURLConnection) url.openConnection();
+            if(connection.getResponseCode()==200)
+            {
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     class BitmapCache implements ImageLoader.ImageCache{
         LruCache<String,Bitmap> lruCache;

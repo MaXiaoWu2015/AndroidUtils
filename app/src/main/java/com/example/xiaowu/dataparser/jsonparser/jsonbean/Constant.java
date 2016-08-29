@@ -12,8 +12,8 @@ public class Constant {
             "            {" +
             "                \"id\": 1000," +
             "                \"title\": \"消息标题\"," +
-            "                \"showTime\": 1467682128," +
-            "                \"expireTime\": 1467682128," +
+            "                \"showTime\": \"2016-07-30 09:39:09\"," +
+            "                \"expireTime\": \"12016-07-29 09:39:09\"," +
             "                \"isPopup\": true," +
             "                \"isInList\": true," +
             "                \"popupImage\": \"http://konka.com/laa.jpg\"," +
@@ -47,4 +47,7 @@ public class Constant {
             "        ]" +
             "    }" +
             "}";
+
+
+
 }
