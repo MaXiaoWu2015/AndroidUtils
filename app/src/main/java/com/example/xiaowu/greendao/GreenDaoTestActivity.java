@@ -1,5 +1,7 @@
 package com.example.xiaowu.greendao;
 
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -9,13 +11,11 @@ import com.example.xiaowu.greendao.generate.DaoMaster;
 import com.example.xiaowu.greendao.generate.DaoSession;
 import com.example.xiaowu.greendao.generate.MessageDao;
 
-import org.greenrobot.greendao.query.Join;
 import org.greenrobot.greendao.query.QueryBuilder;
 
 import java.util.List;
 
 public class GreenDaoTestActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +25,6 @@ public class GreenDaoTestActivity extends AppCompatActivity {
         DaoSession daoSession = daoMaster.newSession();
         MessageDao messageDao = daoSession.getMessageDao();
         ChannelDao channelDao=daoSession.getChannelDao();
-
-
-
         QueryBuilder.LOG_SQL = true;
         QueryBuilder.LOG_VALUES = true;
 
@@ -42,18 +39,17 @@ public class GreenDaoTestActivity extends AppCompatActivity {
             channelDao.insertOrReplace(channel);
         }
 
-
-
-
         QueryBuilder queryBuilder=messageDao.queryBuilder();
-        Join join = queryBuilder.join(MessageDao.Properties.Msg_channel_id, Channel.class, ChannelDao.Properties.Id);
         List<Message> messages=queryBuilder.orderDesc(MessageDao.Properties.Create_time).limit(12).offset(0).list();
 
-
         QueryBuilder queryBuilder1=channelDao.queryBuilder();
-        Join join1 = queryBuilder1.join(ChannelDao.Properties.Id, Message.class, MessageDao.Properties.Msg_channel_id);
-
         List<Channel> channelList=queryBuilder1.list();
+
+        //测试Contentprovider
+        Uri uri=Uri.parse("content://com.konka.message.contentprovider/MessageTable");
+        String where="ReadedFlag=0";
+        Cursor cursor=getContentResolver().query(uri,new String[]{MessageDao.Properties.Id.columnName+"",MessageDao.Properties.Is_pop.columnName+""},where,null,null);
+
 
     }
 }

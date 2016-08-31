@@ -9,13 +9,14 @@ import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.ToOne;
 import org.greenrobot.greendao.annotation.Unique;
 
 /**
  * Created by maxiaowu on 16/8/27.
  */
-@Entity
+@Entity(nameInDb = "MessageTable" )
 public class Message {
     @Id(autoincrement = true)
     private Long id;
@@ -26,6 +27,7 @@ public class Message {
     private int msg_type;
     private long create_time;
     private long dead_time;
+    @Property(nameInDb = "ReadedFlag")
     private int is_read;
     private int is_in_list;
     private int notify_type;
