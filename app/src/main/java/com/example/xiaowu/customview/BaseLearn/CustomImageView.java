@@ -80,7 +80,6 @@ public class CustomImageView extends View {
         paint.setTextSize(titleSize);
         paint.getTextBounds(titleText,0,titleText.length(),textBound);
 
-
     }
 
     @Override
@@ -98,7 +97,6 @@ public class CustomImageView extends View {
                 width=Math.min(desireWidth,specSize);
             }
         }
-
         specMode=MeasureSpec.getMode(heightMeasureSpec);
         specSize=MeasureSpec.getSize(heightMeasureSpec);
         if (specMode==MeasureSpec.EXACTLY){
@@ -115,6 +113,7 @@ public class CustomImageView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
 //        super.onDraw(canvas);
+        //paint是画笔   canvas是画布
         //边框
         paint.setStrokeWidth(4);
         paint.setStyle(Paint.Style.STROKE);
@@ -138,7 +137,8 @@ public class CustomImageView extends View {
         }
         rect.bottom-=textBound.height();
         if (imageScaleType==0){
-            canvas.drawBitmap(image,null,rect,paint);
+            canvas.drawBitmap(image,null,rect,paint);//Rect src: 是对图片进行裁截，若是空null则显示整个图片
+                                                    // RectF dst：是图片在Canvas画布中显示的区域，大于src则把src的裁截区放大，小于src则把src的裁截区缩小。
         }else{
             rect.left=getPaddingLeft();
             rect.top=getPaddingTop();

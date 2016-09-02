@@ -13,6 +13,7 @@ android {
     }
     buildTypes {
         release {
+            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -34,6 +35,8 @@ dependencies {
     compile 'com.yipianfengye:MLog:1.0.0'
     compile 'org.greenrobot:greendao:3.1.0'
     compile 'org.greenrobot:greendao-generator:3.0.0'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'//http://www.liaohuqiu.net/cn/posts/leak-canary-read-me/ 使用方法
 
 
 }

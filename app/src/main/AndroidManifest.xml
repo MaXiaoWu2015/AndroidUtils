@@ -14,13 +14,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.xiaowu.dataparser.jsonparser.FastJsonActivity">
-
-        </activity>
+        <activity android:name="com.example.xiaowu.dataparser.jsonparser.FastJsonActivity"></activity>
         <activity android:name="com.example.xiaowu.network.PicassoLoadImageActivity" />
         <activity android:name="com.example.xiaowu.network.VolleyActivity" />
-        <activity android:name="com.example.xiaowu.recyclerview.TestActivity"></activity>
-        <activity android:name="com.example.xiaowu.dataparser.xmlparser.XmlParserActivity"></activity>
+        <activity android:name="com.example.xiaowu.recyclerview.TestActivity" />
+        <activity android:name="com.example.xiaowu.dataparser.xmlparser.XmlParserActivity" />
         <activity android:name="com.example.xiaowu.greendao.GreenDaoTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,10 +26,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
-            android:authorities="com.konka.message.contentprovider"
             android:name="com.example.xiaowu.greendao.greendao_contentProvider.MyContentProvider"
-            android:exported="true"/>
+            android:authorities="com.konka.message.contentprovider"
+            android:exported="true" />
+
+        <activity android:name="com.example.xiaowu.Dagger.DaggerActivity"></activity>
     </application>
 
 </manifest>
