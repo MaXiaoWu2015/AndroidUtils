@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <declare-styleable name="CustomImageView">
         <attr name="titleText" format="string"/>
         <attr name="titleColor" format="color"/>
@@ -9,6 +10,14 @@
             <enum name="fillXY" value="0"/>
             <enum name="center" value="1"/>
         </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="CustomLoadingCircle">
+        <attr name="firstColor" format="color"/>
+        <attr name="secondColor" format="color"/>
+        <attr name="circleWidth" format="dimension"/>
+        <attr name="interval" format="integer"/>
     </declare-styleable>
     
 </resources>

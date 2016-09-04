@@ -20,11 +20,7 @@
         <activity android:name="com.example.xiaowu.recyclerview.TestActivity" />
         <activity android:name="com.example.xiaowu.dataparser.xmlparser.XmlParserActivity" />
         <activity android:name="com.example.xiaowu.greendao.GreenDaoTestActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <provider
@@ -33,6 +29,13 @@
             android:exported="true" />
 
         <activity android:name="com.example.xiaowu.Dagger.DaggerActivity"></activity>
+        <activity android:name="com.example.xiaowu.customview.BaseLearn.CustomViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
