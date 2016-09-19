@@ -1,6 +1,5 @@
 package com.example.xiaowu.customview.BaseLearn;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -9,20 +8,20 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.os.Build;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+import com.example.aaron.library.MLog;
 import com.example.xiaowu.androidutils.R;
 
 /**
  * Created by xiaowu on 2016-8-30.
  */
 public class CustomImageView extends View {
-    private String titleText;
+    private String titleText="";
     private int titleColor;
     private int    titleSize;
     private Bitmap image;
@@ -32,42 +31,50 @@ public class CustomImageView extends View {
     private Rect textBound;
     private Paint paint;
     private Rect rect;
+
+    private static final String TAG = "CustomImageView";
+    //一个参数的构造函数调用两个的,以此类推...  记住是this,不是super
     public CustomImageView(Context context) {
-        super(context,null);
+        this(context,null);
     }
 
     public CustomImageView(Context context, AttributeSet attrs) {
-        super(context, attrs,-1);
+        this(context, attrs,0);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public CustomImageView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr,-1);
+        this(context, attrs, defStyleAttr,0);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public CustomImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         TypedArray typedArray=context.getTheme().obtainStyledAttributes(attrs, R.styleable.CustomImageView,0,0);
         try {
             int count=typedArray.getIndexCount();
+            MLog.d(TAG,"count"+count);
             for (int i=0;i<count;i++){
                 int attr=typedArray.getIndex(i);
                 switch (attr){
                     case R.styleable.CustomImageView_titleText:
                         titleText=typedArray.getString(attr);
+                        MLog.d(TAG,"titleText:"+titleText);
                         break;
                     case R.styleable.CustomImageView_titleSize:
                         titleSize=typedArray.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,16,getResources().getDisplayMetrics()));
+                        MLog.d(TAG,"titleSize:"+titleSize);
                         break;
                     case R.styleable.CustomImageView_titleColor:
                         titleColor=typedArray.getColor(attr,Color.BLACK);
+                        MLog.d(TAG,"titleColor:"+titleColor);
+
                         break;
                     case R.styleable.CustomImageView_image:
                         image= BitmapFactory.decodeResource(getResources(),typedArray.getResourceId(attr,0));
+                        MLog.d(TAG,"image:"+image);
                         break;
                     case R.styleable.CustomImageView_imageScaleType:
                         imageScaleType=typedArray.getInt(attr,1);
+                        MLog.d(TAG,"imageScaleType:"+imageScaleType);
                         break;
                 }
             }
@@ -87,6 +94,7 @@ public class CustomImageView extends View {
 //        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int specMode=MeasureSpec.getMode(widthMeasureSpec);
         int specSize=MeasureSpec.getSize(widthMeasureSpec);
+        //FIXME:当宽设置为固定值时,padding不起作用
         if (specMode==MeasureSpec.EXACTLY){//match_parent  accurate
             width=specSize;
         }else {
@@ -100,7 +108,7 @@ public class CustomImageView extends View {
         specMode=MeasureSpec.getMode(heightMeasureSpec);
         specSize=MeasureSpec.getSize(heightMeasureSpec);
         if (specMode==MeasureSpec.EXACTLY){
-            width=specSize;
+            height=specSize;
         }else{
             if (specMode==MeasureSpec.AT_MOST){
                 int heightDesired=getPaddingTop()+getPaddingBottom()+image.getHeight()+textBound.height();
@@ -140,10 +148,10 @@ public class CustomImageView extends View {
             canvas.drawBitmap(image,null,rect,paint);//Rect src: 是对图片进行裁截，若是空null则显示整个图片
                                                     // RectF dst：是图片在Canvas画布中显示的区域，大于src则把src的裁截区放大，小于src则把src的裁截区缩小。
         }else{
-            rect.left=getPaddingLeft();
-            rect.top=getPaddingTop();
-            rect.bottom=getPaddingTop()+image.getHeight();
-            rect.right=getPaddingLeft()+image.getWidth();
+            rect.left=width/2-image.getWidth()/2;
+            rect.top=(height-textBound.height())/2-image.getHeight()/2;
+            rect.bottom=(height-textBound.height())/2+image.getHeight()/2;
+            rect.right=width/2+image.getWidth()/2;
             canvas.drawBitmap(image,null,rect,paint);
         }
 

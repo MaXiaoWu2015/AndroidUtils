@@ -28,8 +28,9 @@
             android:authorities="com.konka.message.contentprovider"
             android:exported="true" />
 
-        <activity android:name="com.example.xiaowu.Dagger.DaggerActivity" />
-        <activity android:name="com.example.xiaowu.MVP.LoginActivity">
+
+        <activity android:name="com.example.xiaowu.Dagger.DaggerActivity"></activity>
+        <activity android:name="com.example.xiaowu.customview.BaseLearn.CustomViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
