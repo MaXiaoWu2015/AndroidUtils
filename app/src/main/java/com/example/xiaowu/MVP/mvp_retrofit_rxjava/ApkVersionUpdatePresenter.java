@@ -4,6 +4,8 @@ import javax.inject.Inject;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -31,7 +33,18 @@ public class ApkVersionUpdatePresenter {
                 .build();
         retrofitCall=retrofit.create(RetrofitCall.class);
         Call<ApkInfoBean> mycall=retrofitCall.getVer("1");
+        //retrofit: http://www.jianshu.com/p/2263242fa02d
+        mycall.enqueue(new Callback<ApkInfoBean>() {
+            @Override
+            public void onResponse(Call<ApkInfoBean> call, Response<ApkInfoBean> response) {
 
+            }
+
+            @Override
+            public void onFailure(Call<ApkInfoBean> call, Throwable t) {
+
+            }
+        });
 
     }
 
