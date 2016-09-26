@@ -10,10 +10,16 @@ import com.example.aaron.library.MLog;
  */
 public class APP extends Application {
     public static Context context;
+    private APPComponent appComponent;
     @Override
     public void onCreate() {
         super.onCreate();
         context=this;
         MLog.init(true);
+        appComponent=DaggerAPPComponent.builder().aPPModule(new APPModule(this)).build();
+    }
+
+    public APPComponent getAppComponent(){
+        return appComponent;
     }
 }

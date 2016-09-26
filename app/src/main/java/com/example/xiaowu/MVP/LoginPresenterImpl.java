@@ -1,16 +1,22 @@
 package com.example.xiaowu.MVP;
 
+import javax.inject.Inject;
+
 /**
  * Created by xiaowu on 2016-9-19.
  */
 public class LoginPresenterImpl implements LoginPresenter, LoginPresenter.onLoginFinishListener{
-    private LoginModelImpl loginModel;
+
+    @Inject
+    public LoginModelImpl loginModel;
     private LoginView loginView;
 
+    @Inject
     public LoginPresenterImpl(LoginView loginView){
-        loginModel=new LoginModelImpl();
         this.loginView=loginView;
     }
+
+
     @Override
     public void validateCredentials(String username, String password) {
         loginModel.login(username,password,this);

@@ -9,8 +9,13 @@ import android.widget.Toast;
 
 import com.example.xiaowu.androidutils.R;
 
+import javax.inject.Inject;
+
 public class LoginActivity extends AppCompatActivity implements LoginView,View.OnClickListener{
-    private LoginPresenter loginPresenter;
+
+    @Inject
+    LoginPresenterImpl loginPresenter;
+    private LoginComponent loginComponent;
     private EditText username;
     private EditText password;
     private Button button;
@@ -18,10 +23,19 @@ public class LoginActivity extends AppCompatActivity implements LoginView,View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+//        loginPresenter=new LoginPresenterImpl(this);
         username= (EditText) findViewById(R.id.editText);
         password= (EditText) findViewById(R.id.editText2);
         button= (Button) findViewById(R.id.button);
-        loginPresenter=new LoginPresenterImpl(this);
+        loginComponent=DaggerLoginComponent.builder().loginModule(new LoginModule(this)).build();
+        loginComponent.injectLoginActivity(this);
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         button.setOnClickListener(this);
     }
 
@@ -49,4 +63,5 @@ public class LoginActivity extends AppCompatActivity implements LoginView,View.O
     public void onClick(View view) {
         loginPresenter.validateCredentials(username.getText().toString(),password.getText().toString());
     }
+
 }

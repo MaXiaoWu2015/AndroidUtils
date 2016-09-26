@@ -19,18 +19,23 @@
         <activity android:name="com.example.xiaowu.network.VolleyActivity" />
         <activity android:name="com.example.xiaowu.recyclerview.TestActivity" />
         <activity android:name="com.example.xiaowu.dataparser.xmlparser.XmlParserActivity" />
-        <activity android:name="com.example.xiaowu.greendao.GreenDaoTestActivity">
-
-        </activity>
+        <activity android:name="com.example.xiaowu.greendao.GreenDaoTestActivity"></activity>
 
         <provider
             android:name="com.example.xiaowu.greendao.greendao_contentProvider.MyContentProvider"
             android:authorities="com.konka.message.contentprovider"
             android:exported="true" />
 
-
         <activity android:name="com.example.xiaowu.Dagger.DaggerActivity"></activity>
-        <activity android:name="com.example.xiaowu.customview.BaseLearn.CustomViewActivity">
+        <activity android:name="com.example.xiaowu.customview.BaseLearn.CustomViewActivity"></activity>
+        <activity android:name="com.example.xiaowu.MVP.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.xiaowu.MVP.mvp_retrofit_rxjava.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
