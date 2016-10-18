@@ -14,28 +14,46 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.xiaowu.dataparser.jsonparser.FastJsonActivity" />
+        <activity android:name="com.example.xiaowu.dataparser.jsonparser.FastJsonActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
         <activity android:name="com.example.xiaowu.network.PicassoLoadImageActivity" />
         <activity android:name="com.example.xiaowu.network.VolleyActivity" />
         <activity android:name="com.example.xiaowu.recyclerview.TestActivity" />
         <activity android:name="com.example.xiaowu.dataparser.xmlparser.XmlParserActivity" />
-        <activity android:name="com.example.xiaowu.greendao.GreenDaoTestActivity"></activity>
+        <activity android:name="com.example.xiaowu.greendao.GreenDaoTestActivity" />
 
         <provider
             android:name="com.example.xiaowu.greendao.greendao_contentProvider.MyContentProvider"
             android:authorities="com.konka.message.contentprovider"
             android:exported="true" />
 
-        <activity android:name="com.example.xiaowu.Dagger.DaggerActivity"></activity>
-        <activity android:name="com.example.xiaowu.customview.BaseLearn.CustomViewActivity"></activity>
-        <activity android:name="com.example.xiaowu.MVP.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name="com.example.xiaowu.Dagger.DaggerActivity" />
+        <activity android:name="com.example.xiaowu.customview.BaseLearn.CustomViewActivity" />
+        <activity android:name="com.example.xiaowu.MVP.LoginActivity" />
         <activity android:name="com.example.xiaowu.MVP.mvp_retrofit_rxjava.SplashActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name="com.example.xiaowu.statusbar.StatusBarColorChangeActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name="com.example.xiaowu.statusbar.ImmersiveActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
