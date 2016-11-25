@@ -46,14 +46,21 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name="com.example.xiaowu.statusbar.StatusBarColorChangeActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <!-- <activity android:name="com.example.xiaowu.statusbar.StatusBarColorChangeActivity"> -->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+
+        <!-- &lt;!&ndash; <intent-filter> &ndash;&gt; -->
+        <!-- &lt;!&ndash; <action android:name="android.intent.action.MAIN" /> &ndash;&gt; -->
+
+
+        <!-- &lt;!&ndash; <category android:name="android.intent.category.LAUNCHER" /> &ndash;&gt; -->
+        <!-- &lt;!&ndash; </intent-filter> &ndash;&gt; -->
+        <!-- </activity> -->
+        <activity android:name="com.example.xiaowu.statusbar.ImmersiveActivity"></activity>
+        <activity android:name="com.example.xiaowu.EventBus.EventBusActivity">
+
         </activity>
-        <activity android:name="com.example.xiaowu.statusbar.ImmersiveActivity">
+        <activity android:name="com.example.xiaowu.EventBus.AnotherExample.NewsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

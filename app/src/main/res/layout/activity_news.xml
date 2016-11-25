@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_news"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.example.xiaowu.EventBus.AnotherExample.NewsActivity">
+
+    <fragment
+        android:name="com.example.xiaowu.EventBus.AnotherExample.TitleListFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+    </fragment>
+
+    <!--注意这里的View标签的V是大写的
+      如果写成view，会出现下面的错误
+      Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'boolean java.lang.String.equals(java.lang.Object)' on a null object reference
+	at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java:715)
+	at android.view.LayoutInflater.rInflate(LayoutInflater.java:806)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java:504)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java:414)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java:365)
+	at android.support.v7.app.AppCompatDelegateImplV7.setContentView(AppCompatDelegateImplV7.java:280)
+	at android.support.v7.app.AppCompatActivity.setContentView(AppCompatActivity.java:140)
+	at com.example.xiaowu.EventBus.AnotherExample.NewsActivity.onCreate(NewsActivity.java:13)
+	at android.app.Activity.performCreate(Activity.java:6231)
+	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1112)
+	at com.zeroturnaround.jrebel.android.dX.callActivityOnCreate(SourceFile:81)
+	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2534)
+    -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary" />
+    <fragment
+        android:name="com.example.xiaowu.EventBus.AnotherExample.NewsContentFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </fragment>
+</LinearLayout>

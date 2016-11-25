@@ -14,11 +14,10 @@ public class APP extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        context=this;
+        context = this;
         MLog.init(true);
-        appComponent=DaggerAPPComponent.builder().aPPModule(new APPModule(this)).build();
+        appComponent = DaggerAPPComponent.builder().aPPModule(new APPModule(this)).build();
     }
-
     public APPComponent getAppComponent(){
         return appComponent;
     }
