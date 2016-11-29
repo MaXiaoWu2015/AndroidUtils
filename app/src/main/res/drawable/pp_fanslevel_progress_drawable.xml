@@ -1,0 +1,12 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <bitmap android:src="@drawable/pp_fanslevel_progressbar_bg" />
+    </item>
+
+    <item android:id="@android:id/progress">
+        <clip>
+            <nine-patch android:src="@drawable/pp_fanslevel_progress">
+            </nine-patch>
+        </clip>
+    </item>
+</layer-list>
