@@ -10,7 +10,7 @@
      android:childDivider="@drawable/child_bg" 这个直接引color,或者图片会导致整个孩子背景都为这个颜色
     -->
 
-    <com.ryg.expandable.ui.StickyLayout
+    <com.example.xiaowu.listview.pinlistview.StickyLayout
 		android:id="@+id/sticky_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,7 +39,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
-            <com.ryg.expandable.ui.PinnedHeaderExpandableListView
+            <com.example.xiaowu.listview.pinlistview.PinnedHeaderExpandableListView
                 android:id="@+id/expandablelist"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -49,9 +49,9 @@
                 android:divider="@color/Grey"
                 android:dividerHeight="1dp"
                 android:groupIndicator="@null"
-                android:scrollbarAlwaysDrawHorizontalTrack="false" >
-            </com.ryg.expandable.ui.PinnedHeaderExpandableListView>
+                android:scrollbarAlwaysDrawHorizontalTrack="false" />
+
         </LinearLayout>
-    </com.ryg.expandable.ui.StickyLayout>
+    </com.example.xiaowu.listview.pinlistview.StickyLayout>
 
 </RelativeLayout>

@@ -58,17 +58,22 @@
         <!-- </activity> -->
         <activity android:name="com.example.xiaowu.statusbar.ImmersiveActivity" />
         <activity android:name="com.example.xiaowu.EventBus.EventBusActivity" />
-        <activity android:name="com.example.xiaowu.EventBus.AnotherExample.NewsActivity">
+        <activity android:name="com.example.xiaowu.EventBus.AnotherExample.NewsActivity"></activity>
+        <!-- <activity -->
+        <!-- android:name="com.example.xiaowu.HorizontalScrollView.MainPageActivity" -->
+        <!-- android:theme="@style/AppTheme.Base"></activity> -->
+        <activity android:name="com.example.xiaowu.progressbar.ProgressbarActivity" />
+        <activity android:name="com.example.xiaowu.listview.pinnedheaderlistview.demo.PinnedHeaderListViewActivity"></activity>
+        <activity android:name="com.example.xiaowu.listview.pinlistview.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.xiaowu.HorizontalScrollView.MainPageActivity"
-            android:theme="@style/AppTheme.Base"></activity>
-        <activity android:name="com.example.xiaowu.progressbar.ProgressbarActivity"></activity>
+        <activity android:name="com.example.xiaowu.Main2Activity">
+
+        </activity>
     </application>
 
 </manifest>

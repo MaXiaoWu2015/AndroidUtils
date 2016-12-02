@@ -1,9 +1,31 @@
 package com.example.xiaowu.listview.pinlistview;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.AbsListView.LayoutParams;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
+import android.widget.ExpandableListView;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.xiaowu.androidutils.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends Activity implements
         ExpandableListView.OnChildClickListener,
         ExpandableListView.OnGroupClickListener,
-        OnHeaderUpdateListener, OnGiveUpTouchEventListener {
+        PinnedHeaderExpandableListView.OnHeaderUpdateListener,
+        StickyLayout.OnGiveUpTouchEventListener {
     private PinnedHeaderExpandableListView expandableListView;
     private StickyLayout stickyLayout;
     private ArrayList<Group> groupList;
@@ -87,9 +109,9 @@ public class MainActivity extends Activity implements
 
     /***
      * 数据源
-     * 
+     *
      * @author Administrator
-     * 
+     *
      */
     class MyexpandableListAdapter extends BaseExpandableListAdapter {
         private Context context;
@@ -158,11 +180,9 @@ public class MainActivity extends Activity implements
             groupHolder.textView.setText(((Group) getGroup(groupPosition))
                     .getTitle());
             if (isExpanded)// ture is Expanded or false is not isExpanded
-            {
                 groupHolder.imageView.setImageResource(R.drawable.expanded);
-            } else {
+            else
                 groupHolder.imageView.setImageResource(R.drawable.collapse);
-            }
             return convertView;
         }
 
@@ -223,7 +243,7 @@ public class MainActivity extends Activity implements
     public boolean onChildClick(ExpandableListView parent, View v,
             int groupPosition, int childPosition, long id) {
         Toast.makeText(MainActivity.this,
-                childList.get(groupPosition).get(childPosition).getName(), 1)
+                childList.get(groupPosition).get(childPosition).getName(), Toast.LENGTH_SHORT)
                 .show();
 
         return false;
