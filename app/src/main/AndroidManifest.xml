@@ -27,10 +27,10 @@
         <activity android:name="com.example.xiaowu.network.VolleyActivity" />
         <activity android:name="com.example.xiaowu.recyclerview.TestActivity" />
         <activity android:name="com.example.xiaowu.dataparser.xmlparser.XmlParserActivity" />
-        <activity android:name="com.example.xiaowu.greendao.GreenDaoTestActivity" />
+        <activity android:name="com.example.xiaowu.AndroidDataStorage.DataBase.greendao.GreenDaoTestActivity" />
 
         <provider
-            android:name="com.example.xiaowu.greendao.greendao_contentProvider.MyContentProvider"
+            android:name="com.example.xiaowu.AndroidDataStorage.DataBase.greendao.greendao_contentProvider.MyContentProvider"
             android:authorities="com.konka.message.contentprovider"
             android:exported="true" />
 
@@ -58,20 +58,27 @@
         <!-- </activity> -->
         <activity android:name="com.example.xiaowu.statusbar.ImmersiveActivity" />
         <activity android:name="com.example.xiaowu.EventBus.EventBusActivity" />
-        <activity android:name="com.example.xiaowu.EventBus.AnotherExample.NewsActivity"></activity>
+        <activity android:name="com.example.xiaowu.EventBus.AnotherExample.NewsActivity" />
         <!-- <activity -->
         <!-- android:name="com.example.xiaowu.HorizontalScrollView.MainPageActivity" -->
         <!-- android:theme="@style/AppTheme.Base"></activity> -->
         <activity android:name="com.example.xiaowu.progressbar.ProgressbarActivity" />
-        <activity android:name="com.example.xiaowu.listview.pinnedheaderlistview.demo.PinnedHeaderListViewActivity"></activity>
+        <activity android:name="com.example.xiaowu.listview.pinnedheaderlistview.demo.PinnedHeaderListViewActivity" />
         <activity android:name="com.example.xiaowu.listview.pinlistview.MainActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name="com.example.xiaowu.Main2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.xiaowu.Main2Activity">
+        <activity android:name="com.example.xiaowu.AndroidDataStorage.sharepreference.SharePfrefsActivity">
 
         </activity>
     </application>

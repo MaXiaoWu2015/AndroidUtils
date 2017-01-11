@@ -1,4 +1,4 @@
-package com.example.xiaowu.greendao;
+package com.example.xiaowu.AndroidDataStorage.DataBase.greendao;
 
 import android.database.Cursor;
 import android.net.Uri;
@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.xiaowu.androidutils.R;
-import com.example.xiaowu.greendao.generate.ChannelDao;
-import com.example.xiaowu.greendao.generate.DaoMaster;
-import com.example.xiaowu.greendao.generate.DaoSession;
-import com.example.xiaowu.greendao.generate.MessageDao;
+import com.example.xiaowu.AndroidDataStorage.DataBase.greendao.generate.ChannelDao;
+import com.example.xiaowu.AndroidDataStorage.DataBase.greendao.generate.DaoMaster;
+import com.example.xiaowu.AndroidDataStorage.DataBase.greendao.generate.DaoSession;
+import com.example.xiaowu.AndroidDataStorage.DataBase.greendao.generate.MessageDao;
 
 import org.greenrobot.greendao.query.QueryBuilder;
 

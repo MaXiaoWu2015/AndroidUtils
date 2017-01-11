@@ -1,5 +1,7 @@
 package com.example.xiaowu.androidutils;
 
+import static com.example.xiaowu.APP.context;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -11,9 +13,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeoutException;
-
-import static com.example.xiaowu.APP.context;
 
 /**
  * Created by xiaowu on 2016-7-20.
@@ -139,4 +142,20 @@ public class CommonUtils {
         }
     }
 
+    /**
+     * SimpleDateFormat一起父类DateFormat是线程不安全的，最好每个线程一个实例
+     *
+     * 此方法现在线程安全
+     * */
+    //时间格式化
+    public static Date parseStr2Date(String str){
+        //方法一:每次都创建实例
+        SimpleDateFormat SDF=new SimpleDateFormat("yyyyMMdd");
+        try {
+            return SDF.parse(str);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

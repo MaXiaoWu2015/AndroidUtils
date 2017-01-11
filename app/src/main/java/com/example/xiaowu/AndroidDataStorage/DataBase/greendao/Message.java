@@ -1,9 +1,9 @@
-package com.example.xiaowu.greendao;
+package com.example.xiaowu.AndroidDataStorage.DataBase.greendao;
 
 
-import com.example.xiaowu.greendao.generate.ChannelDao;
-import com.example.xiaowu.greendao.generate.DaoSession;
-import com.example.xiaowu.greendao.generate.MessageDao;
+import com.example.xiaowu.AndroidDataStorage.DataBase.greendao.generate.ChannelDao;
+import com.example.xiaowu.AndroidDataStorage.DataBase.greendao.generate.DaoSession;
+import com.example.xiaowu.AndroidDataStorage.DataBase.greendao.generate.MessageDao;
 
 import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;

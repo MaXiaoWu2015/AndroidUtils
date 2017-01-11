@@ -1,4 +1,4 @@
-package com.example.xiaowu.greendao.generate;
+package com.example.xiaowu.AndroidDataStorage.DataBase.greendao.generate;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

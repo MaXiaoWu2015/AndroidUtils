@@ -3,11 +3,11 @@ apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'com.neenbedankt.android-apt'
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.example.xiaowu.androidutils"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
         versionName "la.0"
@@ -22,17 +22,19 @@ android {
 }
 greendao {
     schemaVersion 1
-    daoPackage 'com.example.xiaowu.greendao.generate'
+    daoPackage 'com.example.xiaowu.AndroidDataStorage.DataBase.greendao.generate'
     targetGenDir 'src/main/java'
 }
-
+ext{
+    supportLibVersion="23.1.0"
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //http://www.liaohuqiu.net/cn/posts/leak-canary-read-me/ 使用方法
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile "com.android.support:appcompat-v7:${ supportLibVersion }"
     compile 'com.alibaba:fastjson:1.2.4'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile "com.android.support:recyclerview-v7:${ supportLibVersion }"
     compile 'com.yipianfengye:MLog:1.0.0'
     compile 'org.greenrobot:greendao:3.1.0'
     compile 'org.greenrobot:greendao-generator:3.0.0'
@@ -40,10 +42,11 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.0.1'
     compile 'com.squareup.retrofit2:converter-gson:2.0.1'
     compile 'de.greenrobot:eventbus:3.0.0-beta1'
-    compile 'com.android.support:support-v4:23.4.0'
+    compile "com.android.support:support-v4:${supportLibVersion}"
     testCompile 'junit:junit:4.12'
     apt 'com.google.dagger:dagger-compiler:2.2'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3'
     provided 'javax.annotation:jsr250-api:1.0'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
+    compile 'com.facebook.fresco:fresco:0.14.1'
 }
