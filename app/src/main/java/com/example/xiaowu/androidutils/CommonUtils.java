@@ -127,6 +127,7 @@ public class CommonUtils {
         String cmd = CHMOD + " " + path;
         String s;
         Process process;
+        //test
         try {
             process = Runtime.getRuntime().exec(cmd);
             BufferedReader buff = new BufferedReader(new InputStreamReader(
