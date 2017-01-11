@@ -42,6 +42,7 @@ public class CommonUtils {
 //                Toast.makeText(context,"不支持该文件类型").show();
 //                startActivity(showOpenTypeDialog(filesPath));
             }
+
         }
         else {
             context.startActivity(showOpenTypeDialog(filesPath));
@@ -128,6 +129,7 @@ public class CommonUtils {
         String s;
         Process process;
         //test
+        // two commit
         try {
             process = Runtime.getRuntime().exec(cmd);
             BufferedReader buff = new BufferedReader(new InputStreamReader(

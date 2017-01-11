@@ -65,21 +65,33 @@
         <activity android:name="com.example.xiaowu.progressbar.ProgressbarActivity" />
         <activity android:name="com.example.xiaowu.listview.pinnedheaderlistview.demo.PinnedHeaderListViewActivity" />
         <activity android:name="com.example.xiaowu.listview.pinlistview.MainActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name="com.example.xiaowu.Main2Activity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name="com.example.xiaowu.AndroidDataStorage.sharepreference.SharePfrefsActivity" />
+        <activity android:name="com.example.xiaowu.viewpager.ViewPagerActivity">
+
+        </activity>
+        <activity android:name="com.example.xiaowu.pagerslidingstrip.HorizontalViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="com.example.xiaowu.AndroidDataStorage.sharepreference.SharePfrefsActivity">
-
         </activity>
     </application>
 

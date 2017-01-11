@@ -34,7 +34,8 @@ public class Main2Activity extends AppCompatActivity {
         initView();
         test();
 //        setSpannableString("明星","回复","粉丝:","你好，很高兴认识你");
-        ///test git
+        ///test
+        //one commit
     }
 
     private void initView() {
