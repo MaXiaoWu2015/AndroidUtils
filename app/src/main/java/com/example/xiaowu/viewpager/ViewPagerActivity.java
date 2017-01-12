@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.example.xiaowu.androidutils.R;
 
@@ -50,8 +51,26 @@ public class ViewPagerActivity extends FragmentActivity {
         mTestViewPagerAdapter=new TestViewPagerAdapter(getSupportFragmentManager(),mFragList,this);
         mViewPager= (ViewPager) findViewById(R.id.vp_test);
         mViewPager.setAdapter(mTestViewPagerAdapter);
-
         mViewPager.setCurrentItem(2,true);
+
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset,
+                    int positionOffsetPixels) {
+                Log.d("onPageScrolled", "position: "+position+"--positionOffset: "+positionOffset
+                    +"--positionOffsetPixels:"+positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                Log.d("onStateChanged", "state: "+state+"--position:"+mViewPager.getCurrentItem());
+            }
+        });
 
 
     }

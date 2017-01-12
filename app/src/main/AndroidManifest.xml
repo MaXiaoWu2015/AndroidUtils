@@ -84,14 +84,14 @@
         </activity>
         <activity android:name="com.example.xiaowu.AndroidDataStorage.sharepreference.SharePfrefsActivity" />
         <activity android:name="com.example.xiaowu.viewpager.ViewPagerActivity">
-
-        </activity>
-        <activity android:name="com.example.xiaowu.pagerslidingstrip.HorizontalViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name="com.example.xiaowu.pagerslidingstrip.HorizontalViewActivity">
+
         </activity>
     </application>
 

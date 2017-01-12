@@ -7,6 +7,7 @@ import com.example.xiaowu.androidutils.R;
 
 public class HorizontalViewActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

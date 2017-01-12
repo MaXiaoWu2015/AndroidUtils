@@ -20,4 +20,19 @@
         <attr name="interval" format="integer"/>
     </declare-styleable>
     
+    <declare-styleable name="PagerSlidingStrip">
+        <attr name="tabTextColor" format="color" />
+        <attr name="tabTextSize" format="dimension"/>
+        <attr name="tabPadding" format="dimension"/>
+        <attr name="tabBackground" format="reference"/>
+        <attr name="dividerColor" format="color"/>
+        <attr name="dividerPadding" format="dimension"/>
+        <attr name="underLineColor" format="color"/>
+        <attr name="underLineHeight" format="dimension"/>
+        <attr name="indicatorColor" format="color"/>
+        <attr name="indicatorHeight" format="dimension" />
+        <attr name="isTabExpand" format="boolean" />
+        <attr name="scrollOffset" format="dimension"/>
+    </declare-styleable>
+    
 </resources>
