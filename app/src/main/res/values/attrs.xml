@@ -31,6 +31,7 @@
         <attr name="underLineHeight" format="dimension"/>
         <attr name="indicatorColor" format="color"/>
         <attr name="indicatorHeight" format="dimension" />
+        <attr name="indicatorPadding" format="dimension"/>
         <attr name="isTabExpand" format="boolean" />
         <attr name="scrollOffset" format="dimension"/>
     </declare-styleable>

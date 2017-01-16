@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_detail_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.xiaowu.WDJAppDetail.DetailActivity"
+    android:background="@color/transparent"
+    android:fillViewport="true">
+    <com.example.xiaowu.WDJAppDetail.AppDetailRootLinearLayout
+        android:id="@+id/ll_app_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/transparent">
+
+        <View
+            android:id="@+id/v_transparent_section"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:background="@color/transparent"
+            />
+      <LinearLayout
+          android:id="@+id/ll_detail_content"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:background="@color/white">
+        <include
+            android:id="@+id/layout_header"
+            layout="@layout/app_detail_header"
+            android:visibility="gone"
+            />
+        <ImageView
+            android:id="@+id/iv_app_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            />
+        <include
+            android:id="@+id/layout_bottom"
+            layout="@layout/app_detail_content"
+            android:visibility="gone"/>
+      </LinearLayout>
+    </com.example.xiaowu.WDJAppDetail.AppDetailRootLinearLayout>
+</ScrollView>

@@ -16,6 +16,14 @@
         <!--Window color-->
     </style>
 
+
+    <style name="AppDetailTheme" parent="Theme.AppCompat.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
     <!--任务中心等级进度条-->
     <style name="MyProgressBarStyleHorizontal">
         <item name="android:indeterminateOnly">false</item>
