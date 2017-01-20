@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.xiaowu.WDJAppDetail.DetailActivity"
     android:background="@color/transparent"
+    android:scrollbars="none"
     android:fillViewport="true">
     <com.example.xiaowu.WDJAppDetail.AppDetailRootLinearLayout
         android:id="@+id/ll_app_detail"
@@ -35,7 +36,9 @@
             android:id="@+id/iv_app_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
             />
         <include
             android:id="@+id/layout_bottom"

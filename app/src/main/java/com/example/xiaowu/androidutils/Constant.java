@@ -9,6 +9,8 @@ public class Constant {
 
     public static final String ITEM_VIEW_TOP="item_view_top";
 
+    public static final String ITEM_ICON_ID="item_icon_id";
+
     public static final String[][] MIME_MapTable =
             {
                     // --{后缀名， MIME类型}   --

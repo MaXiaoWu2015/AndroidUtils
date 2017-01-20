@@ -17,10 +17,12 @@ public class AppDetailRootLinearLayout extends LinearLayout {
     private ImageView  mIvAppIcon;
     private boolean isAnimation;
     private boolean isLayoutImageView;
+    private int mDetailContentTopOffset=0;
     private int mDetailContentBottomOffset=0;
     private int mViewMarginTop=0;
     private int mAppIconTopOffset=0;
     private int mAppIconLeftOffset =0;
+    private Context mContext;
 
 
     public AppDetailRootLinearLayout(Context context) {
@@ -38,9 +40,21 @@ public class AppDetailRootLinearLayout extends LinearLayout {
         init();
     }
 
-    public void init(){
+    /**
+     * 我们一般使用View的流程是在onCreate中使用setContentView来设置要显示Layout文件或直接创建一个View，
+     * 在当设置了ContentView之后系统会对这个View进行解析，然后回调当前视图View中的onFinishInflate方法。
+     * 只有解析了这个View我们才能在这个View容器中获取到拥有Id的组件，同样因为系统解析完View之后才会调
+     * 用onFinishInflate方法，所以我们自定义组件时可以onFinishInflate方法中获取指定子View的引用
+     * */
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        //放在init里会出现mLlContent=null   mIvAppIcon=null
         mLlContent= (LinearLayout) findViewById(R.id.ll_detail_content);
         mIvAppIcon= (ImageView) findViewById(R.id.iv_app_icon);
+    }
+
+    public void init(){
     }
 
     @Override
@@ -77,4 +91,13 @@ public class AppDetailRootLinearLayout extends LinearLayout {
     public void setLayoutImageView(boolean layoutImageView) {
         isLayoutImageView = layoutImageView;
     }
+
+    public void setAllViewsOffset(int contentLlTop,int contentLlBottom,int imageIconLeft,int imageIconTop){
+        mDetailContentBottomOffset=contentLlBottom;
+        mDetailContentTopOffset=contentLlTop;
+        mAppIconLeftOffset=imageIconLeft;
+        mAppIconTopOffset=imageIconTop;
+        requestLayout();
+    }
+
 }

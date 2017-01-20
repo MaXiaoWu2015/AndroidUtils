@@ -20,7 +20,7 @@ public class WDJActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_wdj);
         initData();
         initView();
     }
@@ -50,6 +50,7 @@ public class WDJActivity extends AppCompatActivity {
         appInfo.appSize="30M";
         appInfo.appState="安装";
         appInfo.appDesc="爱奇艺精选视频占用内存小、耗电小、交互简单、播放流畅，在高中低档手机中均能完美运行；集中爱奇艺精心挑选内容，快速观看，找片！";
+        mAppInfos.add(appInfo);
 
         AppInfo appInfo0=new AppInfo();
         appInfo0.appName="哔哩哔哩";
@@ -57,6 +58,7 @@ public class WDJActivity extends AppCompatActivity {
         appInfo0.appSize="30M";
         appInfo0.appState="安装";
         appInfo0.appDesc="爱奇艺精选视频占用内存小、耗电小、交互简单、播放流畅，在高中低档手机中均能完美运行；集中爱奇艺精心挑选内容，快速观看，找片！";
+        mAppInfos.add(appInfo0);
 
         AppInfo appInfo1=new AppInfo();
         appInfo1.appName="网易云音乐";
@@ -64,6 +66,7 @@ public class WDJActivity extends AppCompatActivity {
         appInfo1.appSize="30M";
         appInfo1.appState="安装";
         appInfo1.appDesc="爱奇艺精选视频占用内存小、耗电小、交互简单、播放流畅，在高中低档手机中均能完美运行；集中爱奇艺精心挑选内容，快速观看，找片！";
+        mAppInfos.add(appInfo1);
 
         AppInfo appInfo2=new AppInfo();
         appInfo2.appName="QQ";
@@ -71,6 +74,7 @@ public class WDJActivity extends AppCompatActivity {
         appInfo2.appSize="30M";
         appInfo2.appState="安装";
         appInfo2.appDesc="爱奇艺精选视频占用内存小、耗电小、交互简单、播放流畅，在高中低档手机中均能完美运行；集中爱奇艺精心挑选内容，快速观看，找片！";
+        mAppInfos.add(appInfo2);
 
         AppInfo appInfo3=new AppInfo();
         appInfo3.appName="赤足";
@@ -78,6 +82,6 @@ public class WDJActivity extends AppCompatActivity {
         appInfo3.appSize="30M";
         appInfo3.appState="安装";
         appInfo3.appDesc="爱奇艺精选视频占用内存小、耗电小、交互简单、播放流畅，在高中低档手机中均能完美运行；集中爱奇艺精心挑选内容，快速观看，找片！";
-
+        mAppInfos.add(appInfo3);
     }
 }
