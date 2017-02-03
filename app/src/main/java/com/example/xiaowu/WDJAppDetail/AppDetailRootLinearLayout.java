@@ -1,10 +1,18 @@
 package com.example.xiaowu.WDJAppDetail;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
+import com.example.xiaowu.androidutils.CommonUtils;
 import com.example.xiaowu.androidutils.R;
 
 /**
@@ -15,15 +23,28 @@ public class AppDetailRootLinearLayout extends LinearLayout {
     private int mTouchMoveOffset=0;
     private LinearLayout mLlContent;
     private ImageView  mIvAppIcon;
+    private ScrollView mScrollView;
     private boolean isAnimation;
     private boolean isLayoutImageView;
+    private boolean isUpScroll;
+    private boolean isDrag;
+    private float mInitY=0;
     private int mDetailContentTopOffset=0;
     private int mDetailContentBottomOffset=0;
     private int mViewMarginTop=0;
     private int mAppIconTopOffset=0;
     private int mAppIconLeftOffset =0;
     private Context mContext;
-
+    private int mInitBottom;
+    private int mImageIconTop;
+    private int mImageIconLeft;
+    private int mLlContentHeight;
+    private int mTitleViewHeight;
+    private int mCenterVisibileHeight;
+    private ValueAnimator mQuitAnimator;
+    private IOnCloseListener mCloseListener;
+    private int mBgAlpha=150;
+    private ColorDrawable mDetailRootDrawable;
 
     public AppDetailRootLinearLayout(Context context) {
         super(context);
@@ -52,26 +73,34 @@ public class AppDetailRootLinearLayout extends LinearLayout {
         //放在init里会出现mLlContent=null   mIvAppIcon=null
         mLlContent= (LinearLayout) findViewById(R.id.ll_detail_content);
         mIvAppIcon= (ImageView) findViewById(R.id.iv_app_icon);
+        Drawable detailRootDrawable=getBackground();
+        mDetailRootDrawable= (ColorDrawable) detailRootDrawable;
+        mDetailRootDrawable.setAlpha(mBgAlpha);
     }
 
     public void init(){
+        mImageIconLeft=getResources().getDimensionPixelSize(R.dimen.icon_margin_left);
+        mImageIconTop=getResources().getDimensionPixelSize(R.dimen.icon_margin_left);
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        mLlContentHeight=mLlContent.getHeight();
+        mTitleViewHeight=getChildAt(0).getHeight();
+        if (mScrollView==null) mScrollView= (ScrollView) getParent();
+        mCenterVisibileHeight=mScrollView.getHeight()-mTitleViewHeight;
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        mLlContent.layout(0,mViewMarginTop+mTouchMoveOffset,mLlContent.getWidth(),!isAnimation ? mViewMarginTop+mTouchMoveOffset+mLlContent.getHeight():mLlContent.getBottom()+mDetailContentBottomOffset);
+        mLlContent.layout(0,mViewMarginTop+mTouchMoveOffset,mLlContent.getWidth(),!isAnimation ? mViewMarginTop+mTouchMoveOffset+mLlContentHeight: mInitBottom +mDetailContentBottomOffset);
 
         if (isLayoutImageView){
-            int left=mIvAppIcon.getLeft()+mAppIconLeftOffset;
-            int top=mIvAppIcon.getTop()+mAppIconTopOffset;
-
-            mIvAppIcon.layout(left,top,left+mIvAppIcon.getWidth(),top+mIvAppIcon.getBottom());
+            int left=mImageIconLeft+mAppIconLeftOffset;
+            int top=mImageIconTop+mAppIconTopOffset;
+            mIvAppIcon.layout(left,top,left+mIvAppIcon.getWidth(),top+mIvAppIcon.getHeight());
         }
     }
 
@@ -82,6 +111,9 @@ public class AppDetailRootLinearLayout extends LinearLayout {
 
     public void setTouchMoveOffset(int touchMoveOffset) {
         mTouchMoveOffset = touchMoveOffset;
+        requestLayout();
+        //改变背景色透明度
+        updateBgColor(mTouchMoveOffset);
     }
 
     public void setAnimation(boolean animation) {
@@ -94,10 +126,104 @@ public class AppDetailRootLinearLayout extends LinearLayout {
 
     public void setAllViewsOffset(int contentLlTop,int contentLlBottom,int imageIconLeft,int imageIconTop){
         mDetailContentBottomOffset=contentLlBottom;
-        mDetailContentTopOffset=contentLlTop;
+        mViewMarginTop=contentLlTop;
         mAppIconLeftOffset=imageIconLeft;
         mAppIconTopOffset=imageIconTop;
         requestLayout();
+    }
+
+    public void setInitBottom(int initBottom) {
+        this.mInitBottom = initBottom;
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        boolean isConsume=true;
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                mInitY=event.getY();
+                getParent().requestDisallowInterceptTouchEvent(true);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                float moveY=event.getY();
+                //TODO:外层scrollview和内层滑动冲突  mScrollView.getScrollY()一直为0
+                if ((mScrollView.getScrollY()<=0 && mInitY==moveY)||isDrag){
+                    float detal=moveY-mInitY;
+                    mTouchMoveOffset= (int) detal;
+                    setTouchMoveOffset(mTouchMoveOffset);
+                    isDrag=true;
+                    isConsume=true;
+                }else{
+                    getParent().requestDisallowInterceptTouchEvent(false);
+                    isConsume=false;
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                isDrag=false;
+                isUpScroll=false;
+                int animationOffset;
+                if (mLlContent.getTop()<(mCenterVisibileHeight/2+mTitleViewHeight)){
+                    animationOffset=mTouchMoveOffset;
+                    isUpScroll=true;
+                }else{
+                    animationOffset=mCenterVisibileHeight-mTouchMoveOffset;
+                    isUpScroll=false;
+                }
+                startQuitAnimation(animationOffset,isUpScroll,mTouchMoveOffset);
+                break;
+        }
+        return isConsume;
+    }
+
+    public void  updateBgColor(int touchMoveOffset){
+        float ratio=CommonUtils.divide(touchMoveOffset,mCenterVisibileHeight);
+        int alpha= (int) (mBgAlpha-mBgAlpha*ratio);
+        mDetailRootDrawable.setAlpha(alpha);
+    }
+
+    /**
+     * 详情页退出动画
+     * */
+    public void startQuitAnimation(final int moveOffset,final boolean isUpScroll, final int currentOffset){
+        mQuitAnimator=ValueAnimator.ofFloat(0,1).setDuration(600);
+
+        mQuitAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                float ratio= (float) valueAnimator.getAnimatedValue();
+                if (isUpScroll){
+                    mTouchMoveOffset= (int) (moveOffset-moveOffset*ratio);
+                }else{
+                    mTouchMoveOffset= (int) (currentOffset+(moveOffset*ratio));
+                }
+                requestLayout();
+                updateBgColor(mTouchMoveOffset);
+            }
+        });
+        mQuitAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (mCloseListener!=null && !isUpScroll){
+                    mCloseListener.close();
+                }
+            }
+
+        });
+        mQuitAnimator.start();
+    }
+
+    public int getCenterVisibileHeight() {
+        return mCenterVisibileHeight;
+    }
+
+    public void setCloseListener(
+            IOnCloseListener closeListener) {
+        mCloseListener = closeListener;
+    }
+
+    interface IOnCloseListener{
+        void close();
     }
 
 }

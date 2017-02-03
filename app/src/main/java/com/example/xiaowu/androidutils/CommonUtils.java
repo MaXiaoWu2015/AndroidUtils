@@ -13,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -160,5 +161,9 @@ public class CommonUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static float divide(int one, int two) {
+        return BigDecimal.valueOf(one).divide(BigDecimal.valueOf(two), 2, BigDecimal.ROUND_HALF_UP).floatValue();
     }
 }

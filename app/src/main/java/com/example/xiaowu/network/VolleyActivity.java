@@ -7,8 +7,10 @@ import android.util.LruCache;
 import android.widget.ImageView;
 
 import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+
 import com.example.xiaowu.androidutils.R;
 
 import java.io.IOException;
@@ -28,6 +30,7 @@ public class VolleyActivity extends Activity {
 
         //la.RequestQueue
         RequestQueue requestQueue= Volley.newRequestQueue(this);
+        Volley.newRequestQueue(this,new HurlStack(null,null));
 //        //2.ImageLoader
 //        ImageLoader imageLoader=new ImageLoader(requestQueue, new BitmapCache());
 //        //ImageListener
