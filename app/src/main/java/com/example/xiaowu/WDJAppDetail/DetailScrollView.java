@@ -32,18 +32,19 @@ public class DetailScrollView extends ScrollView {
                 initY=ev.getY();
                 break;
             case MotionEvent.ACTION_UP:
+
+            case MotionEvent.ACTION_MOVE:
                 Log.d("DetailScrollView:","MotionEvent.ACTION_UP");
                 float moveY=ev.getY()-initY;
                 if (getScrollY()<=0 && moveY>0){
                     return false;
                 }
                 break;
-            case MotionEvent.ACTION_MOVE:
-                if (getScrollY()>0){
-                    requestDisallowInterceptTouchEvent(false);
-                }
-                Log.d("DetailScrollView:","MotionEvent.ACTION_MOVE");
-                break;
+//                if (getScrollY()>0){
+//                    requestDisallowInterceptTouchEvent(false);
+//                }
+//                Log.d("DetailScrollView:","MotionEvent.ACTION_MOVE");
+//                break;
         }
         return super.onInterceptTouchEvent(ev);
     }
