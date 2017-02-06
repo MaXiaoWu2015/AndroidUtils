@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -142,24 +143,25 @@ public class AppDetailRootLinearLayout extends LinearLayout {
         boolean isConsume=true;
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
+                Log.d("DetailScrollView:","linearLayout----MotionEvent.ACTION_DOWN");
                 mInitY=event.getY();
-                getParent().requestDisallowInterceptTouchEvent(true);
                 break;
             case MotionEvent.ACTION_MOVE:
+                Log.d("DetailScrollView:","linearLayout----MotionEvent.ACTION_MOVE");
                 float moveY=event.getY();
                 //TODO:外层scrollview和内层滑动冲突  mScrollView.getScrollY()一直为0
-                if ((mScrollView.getScrollY()<=0 && mInitY==moveY)||isDrag){
+                if ((mScrollView.getScrollY()<=0 && mInitY<moveY)||isDrag){
                     float detal=moveY-mInitY;
                     mTouchMoveOffset= (int) detal;
                     setTouchMoveOffset(mTouchMoveOffset);
                     isDrag=true;
                     isConsume=true;
                 }else{
-                    getParent().requestDisallowInterceptTouchEvent(false);
                     isConsume=false;
                 }
                 break;
             case MotionEvent.ACTION_UP:
+                Log.d("DetailScrollView:","linearLayout----MotionEvent.ACTION_UP");
                 isDrag=false;
                 isUpScroll=false;
                 int animationOffset;
